@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-10-13T11:14:02.581935+00:00",
+ "generated_at": "2026-10-13T11:16:41.888986+00:00",
  "generator": "evm-whale-monitor/export_dashboard.py",
  "tz": "UTC",
- "count": 175,
+ "count": 182,
  "dropped": 1,
  "note": "Real alerts only. Solana history excluded (pre-fix dirty data).",
  "alerts": [
@@ -2352,6 +2352,97 @@
    "tx_url": "https://etherscan.io/tx/0x4976203efffdd534c47605341753ad3d296a12e4675464f313179918fa60c0e7",
    "trades": 14,
    "window_total": 111958.36
+  },
+  {
+   "ts": "2026-10-13T11:14:15+00:00",
+   "chain": "bsc",
+   "kind": "SINGLE",
+   "symbol": "WBNB",
+   "side": "BUY",
+   "usd": 26007.32,
+   "venue": "topaz",
+   "pool": "0x767F1F4bF9E5E40F3D865c172c9bD0AE216e65B4",
+   "tx": "0xcf44bff6a94f56037fa76007599737009cc0c1f9bf51210a3a39094f2021d162",
+   "chart_url": "https://dexscreener.com/bsc/0x767F1F4bF9E5E40F3D865c172c9bD0AE216e65B4",
+   "tx_url": "https://bscscan.com/tx/0xcf44bff6a94f56037fa76007599737009cc0c1f9bf51210a3a39094f2021d162"
+  },
+  {
+   "ts": "2026-10-13T11:14:15+00:00",
+   "chain": "bsc",
+   "kind": "SINGLE",
+   "symbol": "WBNB",
+   "side": "SELL",
+   "usd": 22156.91,
+   "venue": "topaz",
+   "pool": "0x767F1F4bF9E5E40F3D865c172c9bD0AE216e65B4",
+   "tx": "0x8f6b695ba7d654cb0dc9538fbe3a0b2b00fd9bb5400315a4a7e14413a270875f",
+   "chart_url": "https://dexscreener.com/bsc/0x767F1F4bF9E5E40F3D865c172c9bD0AE216e65B4",
+   "tx_url": "https://bscscan.com/tx/0x8f6b695ba7d654cb0dc9538fbe3a0b2b00fd9bb5400315a4a7e14413a270875f"
+  },
+  {
+   "ts": "2026-10-13T11:14:19+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WBTC",
+   "side": "BUY",
+   "usd": 21418.04,
+   "venue": "uniswap",
+   "pool": "0x4585FE77225b41b697C938B018E2Ac67Ac5a20c0",
+   "tx": "0xc0ada4937e874add5e7dfe4fef28bb35394b85cc80d31edf1cf5aea421ea3d95",
+   "chart_url": "https://dexscreener.com/ethereum/0x4585FE77225b41b697C938B018E2Ac67Ac5a20c0",
+   "tx_url": "https://etherscan.io/tx/0xc0ada4937e874add5e7dfe4fef28bb35394b85cc80d31edf1cf5aea421ea3d95"
+  },
+  {
+   "ts": "2026-10-13T11:14:55+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "cbBTC",
+   "side": "BUY",
+   "usd": 29345.04,
+   "venue": "aerodrome",
+   "pool": "0x42d4a22CaD0F5a49681a5715cE994Af73A43B76b",
+   "tx": "0x59c34595e852c39d9abcbe6ab71760ed72a8176fed519d3bf38e8c3332384dac",
+   "chart_url": "https://dexscreener.com/base/0x42d4a22CaD0F5a49681a5715cE994Af73A43B76b",
+   "tx_url": "https://basescan.org/tx/0x59c34595e852c39d9abcbe6ab71760ed72a8176fed519d3bf38e8c3332384dac"
+  },
+  {
+   "ts": "2026-10-13T11:15:25+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "SELL",
+   "usd": 33600.61,
+   "venue": "uniswap",
+   "pool": "0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8",
+   "tx": "0x335cafb060bd138aaa6f3d1545e10c2bbe5985ba35007f77fa6289c8b2632b03",
+   "chart_url": "https://dexscreener.com/ethereum/0x8ad599c3A0ff1De082011EFDDc58f1908eb6e6D8",
+   "tx_url": "https://etherscan.io/tx/0x335cafb060bd138aaa6f3d1545e10c2bbe5985ba35007f77fa6289c8b2632b03"
+  },
+  {
+   "ts": "2026-10-13T11:15:25+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WBTC",
+   "side": "SELL",
+   "usd": 44950.28,
+   "venue": "uniswap",
+   "pool": "0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx": "0x335cafb060bd138aaa6f3d1545e10c2bbe5985ba35007f77fa6289c8b2632b03",
+   "chart_url": "https://dexscreener.com/ethereum/0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx_url": "https://etherscan.io/tx/0x335cafb060bd138aaa6f3d1545e10c2bbe5985ba35007f77fa6289c8b2632b03"
+  },
+  {
+   "ts": "2026-10-13T11:15:25+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "BUY",
+   "usd": 20466.55,
+   "venue": "uniswap",
+   "pool": "0xE0554a476A092703abdB3Ef35c80e0D76d32939F",
+   "tx": "0xc474bbe3a469ef3a771fde75b377793244a37b88c1abe7745b7a781dce521a92",
+   "chart_url": "https://dexscreener.com/ethereum/0xE0554a476A092703abdB3Ef35c80e0D76d32939F",
+   "tx_url": "https://etherscan.io/tx/0xc474bbe3a469ef3a771fde75b377793244a37b88c1abe7745b7a781dce521a92"
   }
  ]
 }
