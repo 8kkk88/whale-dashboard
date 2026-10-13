@@ -4,35 +4,34 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
+<meta name="description" content="BSC、Base、Ethereum 大額警報儀表板，提供買賣統計、時區切換與最新鏈上警報。">
 <title>EVM 大額監控｜警報儀表板</title>
 <style>
-:root{--bg:#0c1017;--panel:#141b25;--panel2:#192331;--line:#2d3b4d;--text:#ecf2fa;--muted:#a3b2c7;--blue:#8cb5ff;--buy:#63d6b0;--sell:#ff8b98;--amber:#f0c66a;--violet:#baa1f4;--radius:16px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Segoe UI,Microsoft JhengHei,system-ui,sans-serif;font-size:14px;line-height:1.6}button,input,select{font:inherit}button,select,input[type=date]{min-height:42px}button{cursor:pointer;border:1px solid var(--line);border-radius:9px;padding:9px 15px;background:var(--panel2);color:var(--text);transition:background .16s}button:hover{background:#27364a}button.primary{background:var(--blue);border-color:var(--blue);color:#101c32;font-weight:700}button:disabled{opacity:.45;cursor:default}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}.skip{position:absolute;left:16px;top:-60px;background:var(--blue);color:#101c32;padding:10px;z-index:10}.skip:focus{top:10px}header{border-bottom:1px solid var(--line);background:#101721}header>div,.container{max-width:1440px;margin:auto;padding:24px 36px}header>div{display:flex;align-items:center;justify-content:space-between;gap:24px}h1{font-size:24px;letter-spacing:.02em;margin:0 0 3px;font-weight:650}h2{font-size:16px;margin:0;font-weight:650}p{margin:0}.muted{color:var(--muted)}.actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.badge{border:1px solid var(--line);border-radius:20px;padding:4px 11px;color:var(--muted);font-size:12px;white-space:nowrap}.badge.demo{color:var(--amber);border-color:#66532e;background:#2c2518}.badge.loaded{color:var(--buy);border-color:#315b4f;background:#152a25}.container{padding-top:24px;padding-bottom:32px}.dropzone{border:1px dashed #4b6280;border-radius:var(--radius);background:#111a27;padding:20px 24px;display:flex;align-items:center;gap:16px}.dropzone.dragging{border-color:var(--blue);background:#1b2e47;box-shadow:0 0 0 3px #8cb5ff22}.upload-icon{width:40px;height:40px;color:var(--blue);flex-shrink:0}.drop-content{flex:1;min-width:0}.drop-content strong{font-size:15px}.file-name{overflow-wrap:anywhere}.dropzone small{display:block;color:var(--muted);margin-top:2px}.notice{padding:12px 16px;background:#292419;border:1px solid #66532e;color:#f1d89c;border-radius:10px;margin-top:12px;white-space:pre-wrap;overflow-wrap:anywhere}.notice.error{background:#2b1d25;border-color:#743a4e;color:#ffb7c1}.notice[hidden]{display:none}.filters{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;margin:22px 0 16px;padding:16px 20px;border-radius:var(--radius);border:1px solid var(--line);background:var(--panel)}.field{display:grid;gap:6px;flex:1;min-width:130px}.field.date{min-width:160px}.field label{font-size:12px;color:var(--muted)}select,input[type=date]{width:100%;color:var(--text);background:#101722;border:1px solid #42546c;border-radius:8px;padding:8px 11px}.scope{display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:12px;margin:0 2px 18px}.scope span{overflow-wrap:anywhere}.kpis{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:16px;margin-bottom:20px}.kpi{border:1px solid var(--line);border-radius:var(--radius);padding:20px 23px;background:var(--panel);min-width:0}.kpi:first-child{background:linear-gradient(125deg,#1a2b42,#141b25);border-color:#425d7d}.kpi-label{color:var(--muted);font-size:13px}.kpi-value{font-variant-numeric:tabular-nums;font-size:30px;line-height:1.3;font-weight:650;letter-spacing:-.03em;margin:8px 0 5px;overflow-wrap:anywhere}.kpi-sub{font-size:12px;color:var(--muted)}.buy{color:var(--buy)}.sell{color:var(--sell)}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:21px 23px;min-width:0}.card.time{grid-column:span 8}.card.side{grid-column:span 4}.card.half{grid-column:span 6}.card.full{grid-column:1/-1}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}.card-head p{font-size:12px;color:var(--muted);margin-top:3px}.chart{height:235px;position:relative}.chart.tall{height:310px}.chart canvas{max-width:100%}.chart-empty{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:var(--muted);font-size:13px;pointer-events:none}.chart-empty[hidden]{display:none}.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted)}.legend span::before{content:"";display:inline-block;width:8px;height:8px;background:var(--c);border-radius:2px;margin-right:6px}.buy-sell-summary{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums;font-size:13px;margin-top:13px}.table-wrap{overflow:auto;max-height:650px}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{font-size:12px;color:var(--muted);font-weight:500;padding:10px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:1}td{padding:14px;border-bottom:1px solid #263344;font-size:13px;vertical-align:middle}td.money,th.money{text-align:right;font-variant-numeric:tabular-nums}tr:last-child td{border-bottom:0}tbody tr:hover{background:#1a2432}.token-symbol{font-weight:650;color:var(--text);font-size:14px;max-width:240px;overflow:hidden;text-overflow:ellipsis}.token-address{font:11px Consolas,monospace;color:var(--muted)}.pill{font-size:11px;border-radius:5px;padding:3px 7px;display:inline-block;background:#233044;color:#c8dcff}.pill.window{background:#312a1b;color:var(--amber)}.direction{font-weight:600;display:inline-flex;align-items:center;gap:5px}.links{display:flex;gap:12px;font-size:12px}.empty-row td{text-align:center;padding:42px 16px;color:var(--muted)}.pager{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:16px;color:var(--muted);font-size:12px}.pager .actions button{padding:5px 12px;min-height:36px}.details{margin-top:20px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:16px}.details summary{cursor:pointer;color:var(--text)}.details p{margin-top:10px;max-width:1100px}.footer{display:flex;justify-content:space-between;gap:15px;font-size:12px;color:var(--muted);margin-top:20px}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}#chartFailure{margin-bottom:20px}.totals-note{color:var(--muted);font-size:12px;margin:-5px 0 19px}.color-base{color:var(--blue)}.color-bsc{color:var(--amber)}.color-ethereum{color:var(--violet)}
-@media(max-width:1100px){header>div,.container{padding-left:22px;padding-right:22px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.card.time{grid-column:span 7}.card.side{grid-column:span 5}.field{min-width:135px}.chart{height:240px}}
-@media(max-width:700px){header>div{align-items:flex-start;flex-direction:column;gap:14px}header>div,.container{padding-left:16px;padding-right:16px}h1{font-size:22px}.dropzone{padding:16px;align-items:flex-start;flex-wrap:wrap}.dropzone button{margin-left:56px}.kpis{gap:10px}.kpi{padding:16px}.kpi-value{font-size:25px}.filters{padding:14px;gap:12px}.field{min-width:calc(50% - 12px)}.field.date{min-width:calc(50% - 12px)}.scope{display:block}.scope span{display:block}.card.time,.card.side,.card.half{grid-column:1/-1}.card{padding:18px 16px}.card-head{gap:8px}.chart{height:230px}.chart.tall{height:300px}.legend{gap:10px}.footer{display:block}.pager{flex-wrap:wrap}.token-symbol{max-width:160px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-@media(max-width:700px){.drop-content{flex-basis:calc(100% - 56px)}}
-.sync-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:14px 2px 0;color:var(--muted);font-size:13px}.sync-bar strong{color:var(--text);font-weight:500}.sync-error{color:var(--sell)}input[type=datetime-local]{width:100%;min-height:42px;color:var(--text);background:#101722;border:1px solid #42546c;border-radius:8px;padding:8px 11px;font:inherit}.field.date{min-width:215px}.field[hidden]{display:none}.field.period{min-width:190px}
+
+:root{--bg:#0c1017;--panel:#141b25;--panel2:#192331;--line:#2d3b4d;--text:#ecf2fa;--muted:#a3b2c7;--blue:#8cb5ff;--buy:#63d6b0;--sell:#ff8b98;--amber:#f0c66a;--violet:#baa1f4;--radius:16px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 Segoe UI,Microsoft JhengHei,system-ui,sans-serif}button,input,select{font:inherit}button,select,input{min-height:44px}button{cursor:pointer;border:1px solid var(--line);border-radius:9px;padding:9px 15px;background:var(--panel2);color:var(--text)}button:hover{background:#27364a}button.primary{background:var(--blue);border-color:var(--blue);color:#101c32;font-weight:700}button:disabled{opacity:.65;cursor:wait}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}:focus-visible{outline:3px solid var(--blue);outline-offset:3px}[hidden]{display:none!important}.skip{position:absolute;left:16px;top:-60px;background:var(--blue);color:#101c32;padding:10px;z-index:10}.skip:focus{top:10px}header{border-bottom:1px solid var(--line);background:#101721}.header-inner,.container{max-width:1440px;margin:auto;padding:26px 36px}.header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{min-width:0}h1{font-size:clamp(21px,2vw,27px);letter-spacing:.01em;margin:0 0 6px;font-weight:650;line-height:1.4}h2{font-size:16px;margin:0;font-weight:650}p{margin:0}.eyebrow{font-size:12px;color:var(--muted);letter-spacing:.07em;margin-bottom:7px}.metadata{display:flex;flex-wrap:wrap;align-items:center;gap:6px 15px;font-size:12px;color:var(--muted)}.metadata strong{font-weight:500;color:var(--text)}.header-actions{display:flex;align-items:flex-end;gap:12px;flex-shrink:0}.timezone{display:grid;gap:5px}.timezone label,.field label{font-size:12px;color:var(--muted)}.timezone select{min-width:165px}.badge{border:1px solid var(--line);border-radius:20px;padding:3px 10px;color:var(--muted);font-size:12px;white-space:nowrap}.badge.loaded{color:var(--buy);border-color:#315b4f;background:#152a25}.badge.warning{color:var(--amber);border-color:#66532e;background:#2c2518}.badge.error{color:var(--sell);border-color:#743a4e;background:#2b1d25}.muted{color:var(--muted)}.sync-line{display:flex;align-items:center;gap:9px;min-height:24px;color:var(--muted);font-size:13px}.sync-line.error{color:var(--sell)}.status-dot{width:7px;height:7px;border-radius:50%;background:var(--buy);flex-shrink:0}.sync-line.error .status-dot{background:var(--sell)}.sync-line.loading .status-dot{background:var(--blue);box-shadow:0 0 0 4px #8cb5ff1c}.notice{padding:12px 16px;border:1px solid #66532e;background:#292419;color:#f1d89c;border-radius:10px;margin-top:14px;white-space:pre-wrap;overflow-wrap:anywhere}.notice.error{background:#2b1d25;border-color:#743a4e;color:#ffb7c1}.filters{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;margin:22px 0 16px;padding:16px 20px;border-radius:var(--radius);border:1px solid var(--line);background:var(--panel)}.field{display:grid;gap:6px;flex:1;min-width:130px}.field.period{min-width:190px}.field.date{min-width:220px}select,input[type=datetime-local]{width:100%;max-width:100%;min-width:0;color:var(--text);background:#101722;border:1px solid #42546c;border-radius:8px;padding:8px 11px;color-scheme:dark}.scope{display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:12px;margin:0 2px 18px}.scope span{overflow-wrap:anywhere}.kpis{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:16px;margin-bottom:20px}.kpi{border:1px solid var(--line);border-radius:var(--radius);padding:20px 23px;background:var(--panel);min-width:0}.kpi:first-child{background:linear-gradient(125deg,#1a2b42,#141b25);border-color:#425d7d}.kpi-label{color:var(--muted);font-size:13px}.kpi-value{font-variant-numeric:tabular-nums;font-size:30px;line-height:1.3;font-weight:650;letter-spacing:-.03em;margin:8px 0 5px;overflow-wrap:anywhere}.kpi-sub{font-size:12px;color:var(--muted)}.buy{color:var(--buy)}.sell{color:var(--sell)}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:21px 23px;min-width:0}.card.time{grid-column:span 8}.card.side{grid-column:span 4}.card.full{grid-column:1/-1}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}.card-head p{font-size:12px;color:var(--muted);margin-top:3px}.chart{height:235px;position:relative}.chart.tall{height:310px}.chart canvas{max-width:100%}.chart-empty{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:var(--muted);font-size:13px;pointer-events:none;background:#141b25b3}.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted)}.legend span::before{content:"";display:inline-block;width:8px;height:8px;background:var(--c);border-radius:2px;margin-right:6px}.buy-sell-summary{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums;font-size:13px;margin-top:13px}.table-wrap{overflow:auto;max-width:100%;max-height:650px;overscroll-behavior:contain;border-radius:8px}table{border-collapse:collapse;width:100%;min-width:920px;text-align:left;white-space:nowrap}th{font-size:12px;color:var(--muted);font-weight:500;padding:10px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:1}td{padding:14px;border-bottom:1px solid #263344;font-size:13px;vertical-align:middle}td.money,th.money{text-align:right;font-variant-numeric:tabular-nums}tr:last-child td{border-bottom:0}tbody tr:hover{background:#1a2432}.token-symbol{font-weight:650;color:var(--text);font-size:14px;max-width:240px;overflow:hidden;text-overflow:ellipsis}.token-address{font:11px Consolas,monospace;color:var(--muted)}.pill{font-size:11px;border-radius:5px;padding:3px 7px;display:inline-block;background:#233044;color:#c8dcff}.pill.window{background:#312a1b;color:var(--amber)}.direction{font-weight:600;display:inline-flex;gap:5px}.links{display:flex;gap:12px;font-size:12px}.empty-row td{text-align:center;padding:42px 16px;color:var(--muted)}.pager{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:16px;color:var(--muted);font-size:12px}.details{margin-top:22px;color:var(--muted);font-size:13px;border:1px solid var(--line);border-radius:12px;padding:14px 18px}.details summary{cursor:pointer;color:var(--text);font-weight:500}.details p{margin-top:12px;max-width:1100px}.footer{display:flex;justify-content:space-between;gap:15px;font-size:12px;color:var(--muted);margin-top:20px}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.totals-note{color:var(--muted);font-size:12px;margin:-5px 0 19px}.color-base{color:var(--blue)}.color-bsc{color:var(--amber)}.color-ethereum{color:var(--violet)}
+@media(max-width:1100px){.header-inner,.container{padding-left:22px;padding-right:22px}.header-inner{align-items:flex-start;flex-wrap:wrap}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.card.time{grid-column:span 7}.card.side{grid-column:span 5}}
+@media(max-width:700px){.header-inner,.container{padding-left:16px;padding-right:16px}.header-inner{gap:18px}.header-actions{width:100%;align-items:flex-end}.timezone{flex:1;min-width:0}.timezone select{min-width:0}.header-actions button{min-width:110px}.metadata{gap:6px 12px}.kpis{gap:10px}.kpi{padding:16px}.kpi-value{font-size:25px}.filters{padding:14px;gap:12px}.field{min-width:calc(50% - 12px)}.field.period,.field.date{flex-basis:100%;min-width:0}.scope{display:block}.scope span{display:block}.card.time,.card.side{grid-column:1/-1}.card{padding:18px 16px}.card-head{gap:8px}.chart{height:230px}.chart.tall{height:300px}.legend{gap:10px}.footer{display:block}.pager{flex-wrap:wrap}.token-symbol{max-width:160px}}
+
 </style>
-<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" onerror="window.chartLoadFailed=true"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
+
 <a class="skip" href="#main">跳至圖表與警報</a>
-<header><div><div><h1>EVM 大額監控</h1><p class="muted">BSC · Base · Ethereum　警報儀表板 · UTC</p></div><div class="actions"><span class="badge" id="dataBadge">尚未載入資料</span><button id="refreshButton" class="primary">立即刷新</button><button id="demoButton">載入 20 筆示範</button><button id="openButton">開啟檔案</button></div></div></header>
+<header><div class="header-inner"><div class="brand"><p class="eyebrow">BSC · BASE · ETHEREUM</p><h1>EVM 大額監控｜警報儀表板</h1><div class="metadata"><span class="badge" id="dataBadge">載入中</span><strong id="dataUpdated">數據更新於 載入中（UTC）</strong><span id="totalRecords">總筆數：載入中</span></div></div><div class="header-actions"><div class="timezone"><label for="timezoneSelect">顯示時區</label><select id="timezoneSelect"><option value="UTC">UTC</option><option value="TAIPEI">台北（UTC+8）</option></select></div><button id="refreshButton" class="primary">立即刷新</button></div></div></header>
 <main class="container" id="main">
-<section class="dropzone" id="dropzone" aria-label="拖放 alerts.json 或 alerts.jsonl 匯入區">
-<svg class="upload-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M8 27v5h24v-5M20 27V7m-8 8 8-8 8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-<div class="drop-content"><strong class="file-name" id="sourceName">alerts.json 自動更新</strong><small id="sourceDetail">每 60 秒檢查同目錄的 alerts.json；也可拖放 JSON／JSONL 檔案檢視。</small></div><button id="chooseButton">選擇檔案</button><input class="sr-only" type="file" id="fileInput" accept=".jsonl,.ndjson,.json,.log,.txt" aria-label="選擇警報 JSON 或 JSONL 檔案">
-</section>
-<div class="sync-bar"><div><strong id="dataUpdated">數據更新於 —（UTC）</strong> · <span id="totalRecords">總筆數：0</span></div><span id="syncStatus" role="status" aria-live="polite">準備讀取 alerts.json</span></div>
-<div class="notice" id="importNotice" role="status" aria-live="polite" hidden></div>
-<div class="notice error" id="chartFailure" role="alert" hidden>Chart.js 尚未載入。圖表需要連線至 CDN；統計、篩選與警報列表仍可使用。請連線後重新開啟此 HTML。</div>
+<div id="staleWarning" class="notice" role="status" hidden></div>
+<div class="sync-line loading" id="syncLine"><span class="status-dot" aria-hidden="true"></span><span id="syncStatus">資料載入中…</span></div><span id="statusAnnouncement" class="sr-only" role="status" aria-live="polite" aria-atomic="true">資料載入中</span>
+<div class="notice" id="dataNotice" role="status" hidden></div>
+<div class="notice error" id="chartFailure" role="alert" hidden>圖表元件載入失敗。統計、篩選與警報列表仍可使用；請連線後重新整理頁面。</div>
 <section class="filters" aria-label="警報篩選器">
 <div class="field"><label for="chainFilter">鏈</label><select id="chainFilter"><option value="ALL">全部鏈</option><option value="bsc">BSC</option><option value="base">Base</option><option value="ethereum">Ethereum</option></select></div>
 <div class="field"><label for="directionFilter">買賣方向</label><select id="directionFilter"><option value="ALL">全部方向</option><option value="BUY">買入</option><option value="SELL">賣出</option></select></div>
-<div class="field period"><label for="timeRange">時間區間（UTC）</label><select id="timeRange"><option value="ALL">即時（全部資料）</option><option value="1">最近 1 小時</option><option value="6">最近 6 小時</option><option value="24">最近 24 小時</option><option value="168">最近 7 天</option><option value="CUSTOM">自選起訖時間</option></select></div>
-<div class="field date" id="customStart" hidden><label for="dateStart">開始時間（UTC）</label><input id="dateStart" type="datetime-local" step="1"></div><div class="field date" id="customEnd" hidden><label for="dateEnd">結束時間（UTC，含該秒）</label><input id="dateEnd" type="datetime-local" step="1"></div><button id="resetButton">重設篩選</button>
+<div class="field period"><label for="timeRange" id="rangeLabel">時間區間（UTC）</label><select id="timeRange"><option value="ALL">即時（全部資料）</option><option value="1">最近 1 小時</option><option value="6">最近 6 小時</option><option value="24">最近 24 小時</option><option value="168">最近 7 天</option><option value="CUSTOM">自選起訖時間</option></select></div>
+<div class="field date" id="customStart" hidden><label for="dateStart" id="startLabel">開始時間（UTC）</label><input id="dateStart" type="datetime-local" step="1"></div><div class="field date" id="customEnd" hidden><label for="dateEnd" id="endLabel">結束時間（UTC，含該秒）</label><input id="dateEnd" type="datetime-local" step="1"></div><button id="resetButton">重設篩選</button>
 </section>
-<div class="scope"><span id="scopeLabel" aria-live="polite">等待資料；篩選只影響圖表統計。</span><span>所有時間皆為 UTC · 最近警報列表保留全部資料</span></div>
+<div class="scope"><span id="scopeLabel" aria-live="polite">資料載入中…</span><span id="scopeNote">顯示時區：UTC · 最近警報列表保留全部資料</span></div>
 <section class="kpis" aria-label="篩選範圍摘要">
 <article class="kpi"><div class="kpi-label">單筆警報金額 · USD</div><div class="kpi-value" id="totalUsd">—</div><div class="kpi-sub">僅加總 SINGLE，不重複加上爆量窗口</div></article>
 <article class="kpi"><div class="kpi-label">單筆警報</div><div class="kpi-value" id="singleCount">—</div><div class="kpi-sub" id="singleSplit">買入 — ／ 賣出 —</div></article>
@@ -41,16 +40,15 @@
 </section>
 <p class="totals-note">五張圖皆以篩選後的 SINGLE 警報計算，代表大額警報中的金額與筆數，並非 DEX 全市場成交量。WINDOW 保留於最近警報列表。</p>
 <div class="grid">
-<section class="card time"><div class="card-head"><div><h2>金額時間走勢</h2><p>每小時單筆警報金額 · USD</p></div><div class="legend"><span style="--c:var(--buy)">買入</span><span style="--c:var(--sell)">賣出</span></div></div><div class="chart"><canvas id="timeChart" role="img" aria-label="按小時加總的買賣警報金額"></canvas><div class="chart-empty" id="timeEmpty">尚無單筆警報</div></div></section>
+<section class="card time"><div class="card-head"><div><h2>金額時間走勢</h2><p id="timeCaption">每小時單筆警報金額 · USD · UTC</p></div><div class="legend"><span style="--c:var(--buy)">買入</span><span style="--c:var(--sell)">賣出</span></div></div><div class="chart"><canvas id="timeChart" role="img" aria-label="按小時加總的買賣警報金額"></canvas><div class="chart-empty" id="timeEmpty">尚無單筆警報</div></div></section>
 <section class="card side"><div class="card-head"><div><h2>買賣金額對比</h2><p>單筆警報金額占比</p></div><span class="badge">USD</span></div><div class="chart"><canvas id="directionChart" role="img" aria-label="買入與賣出金額比例"></canvas><div class="chart-empty" id="directionEmpty">尚無單筆警報</div></div><div class="buy-sell-summary"><span class="buy" id="buySummary">買入 —</span><span class="sell" id="sellSummary">賣出 —</span></div></section>
 <section class="card side"><div class="card-head"><div><h2>三鏈金額分布</h2><p>單筆警報金額占比</p></div><span class="badge">USD</span></div><div class="chart tall"><canvas id="chainChart" role="img" aria-label="BSC、Base 與 Ethereum 的警報金額分布"></canvas><div class="chart-empty" id="chainEmpty">尚無單筆警報</div></div></section>
 <section class="card time"><div class="card-head"><div><h2>各幣累積金額 Top 10</h2><p>按鏈＋幣種分組 · 僅 SINGLE · USD</p></div><span class="badge" id="rankCount">0 種代幣</span></div><div class="chart tall"><canvas id="tokenChart" role="img" aria-label="累積單筆警報金額最多的十種代幣"></canvas><div class="chart-empty" id="tokenEmpty">尚無單筆警報</div></div></section>
 <section class="card full"><div class="card-head"><div><h2>24 小時時段分布</h2><p id="hoursCaption">所選日期中，每個鐘點發生的單筆警報筆數 · UTC</p></div><span class="badge">筆數</span></div><div class="chart"><canvas id="hoursChart" role="img" aria-label="0 到 23 點的單筆警報筆數"></canvas><div class="chart-empty" id="hoursEmpty">尚無單筆警報</div></div></section>
-<section class="card full"><div class="card-head"><div><h2>最近警報（全部資料）</h2><p>UTC · 依時間由新到舊，不受圖表篩選影響；爆量列顯示五分鐘累積額</p></div><span class="badge" id="recordCount">0 筆</span></div><div class="table-wrap"><table><caption class="sr-only">全部最近警報與原始交易連結，時間皆為 UTC</caption><thead><tr><th>時間（UTC）</th><th>鏈／DEX</th><th>幣種</th><th>警報類型</th><th>方向</th><th class="money">金額 · USD</th><th>查看</th></tr></thead><tbody id="alertRows"><tr class="empty-row"><td colspan="7">尚未載入警報。請拖放檔案，或載入 20 筆假資料示範。</td></tr></tbody></table></div><div class="pager"><span id="pageLabel">每頁 50 筆</span><div class="actions"><button id="prevButton" disabled>上一頁</button><button id="nextButton" disabled>下一頁</button></div></div></section>
+<section class="card full"><div class="card-head"><div><h2>最近警報</h2><p id="tableIntro">UTC · 依時間由新到舊，不受圖表篩選影響；爆量列顯示五分鐘累積額</p></div><span class="badge" id="recordCount">載入中</span></div><div class="table-wrap" tabindex="0" role="region" aria-label="最近警報表格，可橫向捲動"><table><caption class="sr-only" id="tableCaption">最近警報與交易連結，時間皆為 UTC</caption><thead><tr><th id="timeColumn">時間（UTC）</th><th>鏈／DEX</th><th>幣種</th><th>警報類型</th><th>方向</th><th class="money">金額 · USD</th><th>查看</th></tr></thead><tbody id="alertRows"><tr class="empty-row"><td colspan="7">資料載入中…</td></tr></tbody></table></div><div class="pager"><span id="pageLabel">預設顯示最新 100 筆</span><button id="moreButton" hidden>載入更多（100 筆）</button></div></section>
 </div>
-<details class="details"><summary>資料與統計口徑</summary><p>HTTP(S) 開啟時自動讀取同目錄 alerts.json，每 60 秒以瀏覽器預設快取檢查一次；只有檔頭 generated_at 改變才套用資料並重繪。「立即刷新」也使用相同快取策略。手動匯入或示範模式會暫停自動讀取，按「立即刷新」可回到線上資料。file:// 雙擊開啟時可手動匯入，無法自動 fetch 本機檔案。</p><p>所有時間皆為 UTC；無時區的字串以 UTC 解讀，有時區的 ISO 時間會轉為 UTC。最近區間以重繪當下的 UTC 現在時間計算，自選區間包含結束時間的整秒。鏈、方向、時間區間只影響圖表與摘要統計，最近警報列表保留全部資料。24 小時分布合併所選區間的相同鐘點。</p><p>接受 SINGLE／WINDOW，以及舊版 single／volume、tx_hash、block_time 欄位。WINDOW 的 window_total 可能與 SINGLE 或其他窗口重疊，所以不混入五張金額／筆數圖。警報紀錄不足以還原完整市場成交量。symbol 為 ? 或空值時，縮寫代幣地址；若只提供 pool，會標示「未知幣 · 池地址」。有 token 的資料按鏈＋token 分組；正式 alerts.json 沒有 token，因此按鏈＋symbol 分組，無法區分同鏈同名的不同代幣。池地址不會當成 token 地址。</p><p>重複的相同行會排除；若有 alert_id 或 log_index，也按其身分去重，不會只憑 tx 合併不同 Swap。格式錯誤會顯示提示。更新失敗時保留上次成功資料。手動選取的檔案內容不會上傳；Chart.js 由 CDN 載入。</p></details>
-<footer class="footer"><span id="footerSource">來源：alerts.json</span><span>UTC · Chart.js 4.5.1</span></footer>
-</main>
+<details class="details" id="dataDetails"><summary>資料說明</summary><p>資料只來自同目錄的 alerts.json，每 60 秒以瀏覽器預設快取檢查；只有 generated_at 改變才套用新資料。「立即刷新」使用相同快取策略。讀取失敗時保留上次成功資料。generated_at 超過 15 分鐘未變時會顯示同步警告；因為沒有新警報時這個時間也可能不變，警告不代表已確認同步故障。</p><p>資料時間與篩選邊界內部一律使用 UTC。可選 UTC 或台北（UTC+8）顯示；自選起訖時間依目前選擇的時區輸入，切換時區保留對應的實際時間範圍。最近區間以重繪當下的現在時間計算，自選區間包含結束時間的整秒。24 小時分布按所選時區合併相同鐘點。</p><p>鏈、方向、時間區間只影響圖表與摘要統計；最近警報列表保留全部資料，預設顯示最新 100 筆，可逐批載入更多。重新取得資料會保留篩選、顯示時區與已展開的筆數。</p><p>WINDOW 的 window_total 可能與 SINGLE 或其他窗口重疊，所以不混入五張金額／筆數圖；列表顯示其五分鐘累積金額。警報紀錄不足以還原完整市場成交量。正式資料未提供 token 地址時按鏈＋symbol 分組，無法區分同鏈同名代幣。symbol 不明時顯示縮寫地址並標示池地址；pool 不會當成 token。</p><p>相同紀錄會去重；若有 alert_id 或 log_index，按其身分識別。無效資料會略過並提示；整份資料無法解析時保留上次成功資料。Chart.js 由 CDN 載入。</p></details>
+<footer class="footer"><span>來源：alerts.json · 每 60 秒檢查</span><span id="footerTimezone">UTC · Chart.js 4.5.1</span></footer></main>
 <script>
 'use strict';
 const $=id=>document.getElementById(id);
@@ -59,9 +57,13 @@ const C={buy:'#63d6b0',sell:'#ff8b98',muted:'#a3b2c7',grid:'#29374a'};
 const money=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
 const exactMoney=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:0,maximumFractionDigits:2});
 const num=new Intl.NumberFormat('en-US');
-let records=[],filtered=[],source='',isDemo=false,page=0,charts={},importSerial=0,hasData=false;
-let sourceMode=['http:','https:'].includes(location.protocol)?'remote':'local',lastGeneratedAt=null,generatedTime=null,refreshInFlight=null,refreshTimer=null;
-const PAGE_SIZE=50;
+let records=[],filtered=[],charts={},hasData=false,displayLimit=100;
+let lastGeneratedAt=null,generatedTime=null,refreshInFlight=null,refreshTimer=null,nextRefreshAt=0,loadState='loading',lastFailure='';
+let activeController=null,currentZone='UTC';
+const ZONES={UTC:{label:'UTC',offset:0},TAIPEI:{label:'台北 UTC+8',offset:28800000}};
+const BATCH_SIZE=100,REFRESH_MS=60000;
+try{const saved=localStorage.getItem('evm-dashboard-timezone');if(ZONES[saved])currentZone=saved;}catch(e){}
+function zoneLabel(){return ZONES[currentZone].label;}
 const brief=a=>a.slice(0,6)+'…'+a.slice(-4);
 function symbolOf(r){return !r.symbol||r.symbol==='?'?(r.token?brief(r.token):'未知幣 · 池 '+brief(r.pool)):r.symbol;}
 function assetKey(r){return r.chain+(r.token?':token:'+r.token:r.symbol&&r.symbol!=='?'?':symbol:'+r.symbol:':pool:'+r.pool);}
@@ -76,9 +78,8 @@ function transactionLink(r){
  return fallback;
 }
 function compact(v){return Math.abs(v)>=1e6?(v/1e6).toFixed(1)+'M':Math.abs(v)>=1e3?(v/1e3).toFixed(v%1000===0?0:1)+'k':String(v);}
-function offset(){return 0;}
-function stamp(t){return new Date(t+offset()).toISOString().slice(0,19).replace('T',' ');}
-function day(t){return stamp(t).slice(0,10);}
+function offset(){return ZONES[currentZone].offset;}
+function stamp(t,zoneOffset=offset()){return new Date(t+zoneOffset).toISOString().slice(0,19).replace('T',' ');}
 function dateValue(value){
  if(typeof value==='number'&&Number.isFinite(value))return value<1e11?value*1000:value;
  if(typeof value!=='string')throw Error('缺少有效時間');
@@ -107,21 +108,7 @@ function normalize(raw,line){
  if(!Number.isFinite(time)||time<Date.UTC(1970,0,1)||time>Date.UTC(2101,0,1))throw Error('時間超出有效範圍');
  return {chain,kind,direction:['BUY','SELL'].includes(direction)?direction:'MIXED',time,tx,token,usd,windowTotal,trades,symbol:String(raw.symbol||'?').trim().slice(0,120),dex:String(raw.venue??raw.dex??'未提供').slice(0,120),pool,chartUrl:raw.chart_url,txUrl:raw.tx_url,line,alertId:raw.alert_id==null?null:String(raw.alert_id),logIndex:raw.log_index??null};
 }
-function parseJsonl(text){
- const rows=[],errors=[],seen=new Set();let duplicate=0,nonempty=0;
- text.replace(/^\uFEFF/,'').split(/\r?\n/).forEach((line,i)=>{if(!line.trim())return;nonempty++;try{
- const raw=JSON.parse(line),r=normalize(raw,i+1);
- const key=r.alertId?'id:'+r.alertId:r.logIndex!==null?JSON.stringify([r.chain,r.tx,r.logIndex,r.kind]):JSON.stringify([r.chain,r.tx,r.kind,r.token,r.symbol,r.direction,r.time,r.usd,r.windowTotal,r.trades,r.pool]);
- if(seen.has(key)){duplicate++;return;}seen.add(key);rows.push(r);
- }catch(e){errors.push({line:i+1,message:e.message});}});
- return {rows:rows.sort((a,b)=>b.time-a.time||b.line-a.line),errors,duplicate,nonempty};
-}
-function notice(text,error=false){$('importNotice').textContent=text;$('importNotice').classList.toggle('error',error);$('importNotice').hidden=!text;}
-function syncStatus(text,error=false){$('syncStatus').textContent=text;$('syncStatus').classList.toggle('sync-error',error);}
-function updateMetadata(){
- $('dataUpdated').textContent='數據更新於 '+(generatedTime===null?'—':stamp(generatedTime))+'（UTC）';
- $('totalRecords').textContent='總筆數：'+num.format(records.length)+(isDemo?'（假資料）':'');
-}
+
 function resetControls(){['chainFilter','directionFilter','timeRange'].forEach(id=>$(id).value='ALL');$('dateStart').value='';$('dateEnd').value='';toggleCustomRange();}
 function toggleCustomRange(){const custom=$('timeRange').value==='CUSTOM';$('customStart').hidden=$('customEnd').hidden=!custom;}
 function snapshotHeader(payload){
@@ -130,67 +117,72 @@ function snapshotHeader(payload){
  return {key:String(payload.generated_at),time};
 }
 function parseSnapshot(payload){
- const header=snapshotHeader(payload);
- const raw=payload.alerts;
+ const header=snapshotHeader(payload),raw=payload.alerts,rows=[],errors=[],seen=new Set();let duplicate=0;
  if(!Array.isArray(raw))throw Error('alerts.json 缺少 alerts 警報資料陣列');
- const result=parseJsonl(raw.map(row=>JSON.stringify(row)).join('\n'));
- if(raw.length&&!result.rows.length)throw Error('警報陣列中沒有有效紀錄；上次資料保持不變');
- return {...result,header};
+ raw.forEach((item,i)=>{try{const r=normalize(item,i+1);
+ const key=r.alertId?'id:'+r.alertId:r.logIndex!==null?JSON.stringify([r.chain,r.tx,r.logIndex,r.kind]):JSON.stringify([r.chain,r.tx,r.kind,r.token,r.symbol,r.direction,r.time,r.usd,r.windowTotal,r.trades,r.pool]);
+ if(seen.has(key)){duplicate++;return;}seen.add(key);rows.push(r);
+ }catch(e){errors.push({line:i+1,message:e.message});}});
+ if(raw.length&&!rows.length)throw Error('警報陣列中沒有有效紀錄');
+ return {header,rows:rows.sort((a,b)=>b.time-a.time||b.line-a.line),errors,duplicate};
 }
-function applyRecords(result,name,demo=false,remote=false){
- records=result.rows;source=name;isDemo=demo;hasData=true;
- if(!remote){sourceMode='local';lastGeneratedAt=null;generatedTime=result.header?.time??null;resetControls();page=0;syncStatus('手動檢視'+(demo?' · 假資料':'')+'；按立即刷新可回到 alerts.json');}
- else{lastGeneratedAt=result.header.key;generatedTime=result.header.time;}
- $('dataBadge').className='badge '+(demo?'demo':'loaded');$('dataBadge').textContent=demo?'示範資料 · 20 筆假資料':(remote?'自動更新':'已載入')+' · '+num.format(records.length)+' 筆';
- $('sourceName').textContent=name;$('sourceDetail').textContent=remote?'每 60 秒檢查 alerts.json；generated_at 有變才更新，保留目前圖表篩選。':'讀入 '+num.format(records.length)+' 筆有效警報。手動檢視暫停自動讀取；可按立即刷新恢復。';
- $('footerSource').textContent='來源：'+name+(demo?'（完全虛構）':'')+(remote?' · 每 60 秒檢查':' · 手動檢視');
- const notes=[];if(demo)notes.push('目前顯示 20 筆假資料，只用來示範與驗證，並非真實鏈上警報。');
- if(result.errors.length)notes.push('略過 '+result.errors.length+' 行無效資料：'+result.errors.slice(0,5).map(e=>'第 '+e.line+' 行（'+e.message+'）').join('、')+(result.errors.length>5?'等。':'。'));
- if(result.duplicate)notes.push('已排除 '+result.duplicate+' 筆重複紀錄。');notice(notes.join('\n'));updateMetadata();render(true);return true;
+function updateMetadata(){
+ $('dataUpdated').textContent='數據更新於 '+(generatedTime===null?(loadState==='loading'?'載入中':'—'):stamp(generatedTime))+'（'+zoneLabel()+'）';
+ $('totalRecords').textContent='總筆數：'+(hasData?num.format(records.length):loadState==='loading'?'載入中':'—');
 }
-function acceptText(text,name,demo=false){
- let result;
- try{if(!demo&&text.trimStart().startsWith('{')){try{const payload=JSON.parse(text);if(payload&&Object.hasOwn(payload,'generated_at'))result=parseSnapshot(payload);}catch(e){if(e instanceof SyntaxError){}else throw e;}}if(!result)result=parseJsonl(text);
- if(!result.rows.length&&!result.header)throw Error(result.errors.length?'第 '+result.errors[0].line+' 行：'+result.errors[0].message:'請確認每行都有一個 JSON');
- return applyRecords(result,name,demo,false);
- }catch(e){notice('檔案無法匯入：'+e.message+'。原有資料保持不變。',true);return false;}
+function updateEmptyStates(empty){
+ for(const prefix of ['time','direction','chain','token','hours']){
+ const element=$(prefix+'Empty');element.hidden=!empty||!window.Chart;
+ element.textContent=hasData?'所選區間尚無單筆警報':loadState==='error'?'資料暫時無法載入':'資料載入中…';
+ }
 }
-async function refreshAlerts(immediate=false){
- if(!['http:','https:'].includes(location.protocol)){syncStatus('file:// 使用手動匯入；自動刷新請以 HTTP(S) 開啟');return false;}
- if(immediate&&sourceMode!=='remote'){sourceMode='remote';lastGeneratedAt=null;importSerial++;}
- if(sourceMode!=='remote')return false;
+function updateStatus(){
+ const remaining=Math.max(0,Math.ceil((nextRefreshAt-Date.now())/1000));
+ $('syncStatus').textContent=loadState==='loading'?(hasData?'正在檢查更新…':'資料載入中…'):loadState==='error'?'資料讀取失敗，'+remaining+' 秒後重試'+(hasData?' · 保留上次成功資料':''):'每 60 秒檢查更新 · '+remaining+' 秒後檢查';
+ $('syncLine').className='sync-line '+(loadState==='loading'?'loading':loadState==='error'?'error':'');
+ $('syncStatus').title=loadState==='error'?lastFailure:'';
+ const age=generatedTime===null?0:Math.max(0,Date.now()-generatedTime),stale=generatedTime!==null&&age>900000;
+ $('staleWarning').hidden=!stale;
+ if(stale){const warning='數據已 '+Math.floor(age/60000)+' 分鐘未更新，同步可能中斷';if($('staleWarning').textContent!==warning)$('staleWarning').textContent=warning;}
+ $('dataBadge').className='badge '+(loadState==='error'?'error':stale?'warning':hasData?'loaded':'');
+ $('dataBadge').textContent=loadState==='error'?'讀取失敗':loadState==='loading'?(hasData?'檢查中':'載入中'):stale?'數據過期':'同步正常';
+ $('refreshButton').disabled=loadState==='loading';$('refreshButton').textContent=loadState==='loading'?'讀取中…':'立即刷新';
+ $('main').setAttribute('aria-busy',String(loadState==='loading'&&!hasData));updateMetadata();
+}
+function announce(text){$('statusAnnouncement').textContent=text;}
+function applyRecords(result){
+ records=result.rows;hasData=true;lastGeneratedAt=result.header.key;generatedTime=result.header.time;
+ const notes=[];if(result.errors.length)notes.push('略過 '+result.errors.length+' 筆無效資料：'+result.errors.slice(0,3).map(e=>'第 '+e.line+' 筆（'+e.message+'）').join('、'));
+ if(result.duplicate)notes.push('已排除 '+result.duplicate+' 筆重複紀錄。');
+ $('dataNotice').textContent=notes.join('；');$('dataNotice').hidden=!notes.length;
+ render(true);
+}
+async function refreshAlerts(){
  if(refreshInFlight)return refreshInFlight;
- const serial=importSerial,controller=new AbortController();
- const timeout=setTimeout(()=>controller.abort(),15000);$('refreshButton').disabled=true;syncStatus('正在檢查 alerts.json…');
+ clearTimeout(refreshTimer);nextRefreshAt=Date.now()+REFRESH_MS;loadState='loading';updateStatus();announce(hasData?'正在檢查更新':'資料載入中');
+ if(!hasData){renderRows();updateEmptyStates(true);}
+ const controller=new AbortController();activeController=controller;const timeout=setTimeout(()=>controller.abort(),15000);
  refreshInFlight=(async()=>{
+ await Promise.resolve();
  try{
-  // Default HTTP cache: no cache-busting URL, cache override or conditional headers.
+  if(navigator.onLine===false)throw Error('網路離線');
+  // Keep the browser's default cache; generated_at is the snapshot version.
   const response=await fetch('alerts.json',{signal:controller.signal});
-  if(serial!==importSerial||sourceMode!=='remote')return false;
-  if(response.status===304){if(lastGeneratedAt===null)throw Error('沒有可用的快取資料');syncStatus('資料未變 · 每 60 秒檢查');return false;}
+  if(response.status===304){if(!hasData)throw Error('沒有可用的快取資料');loadState='ready';announce('資料未變');return false;}
   if(!response.ok)throw Error('HTTP '+response.status);
-  const payload=await response.json();if(serial!==importSerial||sourceMode!=='remote')return false;
-  const header=snapshotHeader(payload);
-  if(lastGeneratedAt===header.key){syncStatus('資料未變 · 每 60 秒檢查');return false;}
-  const result=parseSnapshot(payload);applyRecords(result,'alerts.json',false,true);syncStatus('已更新 · 每 60 秒檢查');return true;
- }catch(e){if(serial===importSerial&&sourceMode==='remote')syncStatus('刷新失敗：'+(e.name==='AbortError'?'讀取逾時':e.message)+'；保留上次資料，60 秒後重試',true);return false;}
- finally{clearTimeout(timeout);$('refreshButton').disabled=false;refreshInFlight=null;}
+  const payload=await response.json(),header=snapshotHeader(payload);
+  if(lastGeneratedAt===header.key){loadState='ready';announce('資料未變');return false;}
+  const result=parseSnapshot(payload);loadState='ready';applyRecords(result);announce('警報資料已更新，共 '+num.format(records.length)+' 筆');return true;
+ }catch(e){loadState='error';lastFailure=navigator.onLine===false?'網路離線':e.name==='AbortError'?'讀取逾時':e.message;announce('資料讀取失敗，稍後自動重試'+(hasData?'，保留上次成功資料':''));if(!hasData)render(true);return false;
+ }finally{clearTimeout(timeout);activeController=null;refreshInFlight=null;updateStatus();refreshTimer=setTimeout(refreshAlerts,Math.max(0,nextRefreshAt-Date.now()));}
  })();
  return refreshInFlight;
 }
-function readFile(file){
- if(!file)return;const serial=++importSerial;
- if(file.size>100*1024*1024){notice('檔案超過 100 MB，請先拆分後匯入。原有資料保持不變。',true);return;}
- notice('正在讀取 '+file.name+'…');const reader=new FileReader();
- reader.onload=()=>{if(serial===importSerial)acceptText(String(reader.result),file.name,false);};
- reader.onerror=()=>{if(serial===importSerial)notice('無法讀取此檔案，請重新選擇。原有資料保持不變。',true);};
- reader.readAsText(file,'UTF-8');
-}
 function aggregate(rows){
  const single=rows.filter(r=>r.kind==='SINGLE'),byToken=new Map(),byHour=new Map(),hourCounts=Array(24).fill(0),chainAmounts={bsc:0,base:0,ethereum:0};let buy=0,sell=0;
- for(const r of single){const hour=Math.floor((r.time+offset())/3600000),key=assetKey(r);
+ for(const r of single){const hour=Math.floor(r.time/3600000),key=assetKey(r);
  if(!byHour.has(hour))byHour.set(hour,{BUY:0,SELL:0});byHour.get(hour)[r.direction]+=r.usd;
- hourCounts[new Date(r.time+offset()).getUTCHours()]++;chainAmounts[r.chain]+=r.usd;
+ hourCounts[new Date(r.time).getUTCHours()]++;chainAmounts[r.chain]+=r.usd;
  if(r.direction==='BUY')buy+=r.usd;else sell+=r.usd;
  if(!byToken.has(key))byToken.set(key,{key,token:r.token,pool:r.pool,symbol:symbolOf(r),chain:r.chain,total:0});byToken.get(key).total+=r.usd;}
  let hours=[...byHour.keys()].sort((a,b)=>a-b);let sparse=false;
@@ -199,13 +191,12 @@ function aggregate(rows){
 }
 function baseOptions(extra={}){return {responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#0c121c',borderColor:'#42546c',borderWidth:1,titleColor:'#ecf2fa',bodyColor:'#c4d2e6',padding:12,callbacks:{label:ctx=>(ctx.dataset.label?ctx.dataset.label+'：':'')+exactMoney.format(ctx.parsed.y??ctx.parsed)}}},scales:{x:{grid:{display:false},ticks:{color:C.muted,maxRotation:0,autoSkip:true,maxTicksLimit:9},border:{display:false}},y:{beginAtZero:true,grid:{color:C.grid},ticks:{color:C.muted,callback:v=>'$'+compact(v)},border:{display:false}}},...extra};}
 function paint(id,type,data,options){if(!window.Chart)return;if(charts[id]){charts[id].data=data;charts[id].options=options;charts[id].update('none');}else charts[id]=new Chart($(id),{type,data,options});}
-function setEmpty(prefix,empty){$(prefix+'Empty').hidden=!empty||!window.Chart;}
 function renderCharts(a){
  $('chartFailure').hidden=!!window.Chart;
- for(const prefix of ['time','direction','chain','token','hours'])setEmpty(prefix,a.single.length===0);
+ updateEmptyStates(a.single.length===0);
  if(!window.Chart)return;
  Chart.defaults.color=C.muted;Chart.defaults.font.family='Segoe UI, Microsoft JhengHei, sans-serif';
- const labels=a.hours.map(h=>new Date(h*3600000).toISOString().slice(5,13).replace('T',' ')+':00');
+ const labels=a.hours.map(h=>stamp(h*3600000).slice(5,16));
  paint('timeChart','line',{labels,datasets:[{label:'買入',data:a.hours.map(h=>a.byHour.get(h)?.BUY||0),borderColor:C.buy,backgroundColor:'#63d6b01c',fill:true,pointRadius:a.hours.length<30?2:0,tension:.15,borderWidth:2},{label:'賣出',data:a.hours.map(h=>a.byHour.get(h)?.SELL||0),borderColor:C.sell,backgroundColor:'#ff8b9814',fill:true,pointRadius:a.hours.length<30?2:0,tension:.15,borderWidth:2}]},baseOptions({spanGaps:false}));
  const dough={responsive:true,maintainAspectRatio:false,animation:false,cutout:'73%',plugins:{legend:{display:true,position:'bottom',labels:{color:C.muted,usePointStyle:true,pointStyle:'rectRounded',padding:18,boxWidth:8}},tooltip:{callbacks:{label:c=>c.label+'：'+exactMoney.format(c.raw)+(a.total?'（'+(c.raw/a.total*100).toFixed(1)+'%）':'')}}}};
  paint('directionChart','doughnut',{labels:['買入','賣出'],datasets:[{data:a.single.length?[a.buy,a.sell]:[],backgroundColor:[C.buy,C.sell],borderWidth:0,hoverOffset:3}]},dough);
@@ -213,74 +204,77 @@ function renderCharts(a){
  const topOptions=baseOptions({indexAxis:'y',scales:{x:{beginAtZero:true,grid:{color:C.grid},ticks:{color:C.muted,callback:v=>'$'+compact(v)},border:{display:false}},y:{grid:{display:false},ticks:{color:'#c4d2e6',autoSkip:false,font:{size:11}},border:{display:false}}}});
  topOptions.plugins.tooltip.callbacks={title:ctx=>{const r=a.top[ctx[0].dataIndex];return r.symbol+' · '+CHAIN[r.chain].name+'\n'+(r.token?'代幣 '+r.token:'按鏈＋symbol 加總');},label:ctx=>exactMoney.format(ctx.parsed.x)};
  paint('tokenChart','bar',{labels:a.top.map(r=>r.symbol+' · '+CHAIN[r.chain].name),datasets:[{label:'單筆警報累積',data:a.top.map(r=>r.total),backgroundColor:a.top.map(r=>CHAIN[r.chain].color),borderRadius:4,maxBarThickness:18}]},topOptions);
- const hourOptions=baseOptions();hourOptions.scales.y.ticks={color:C.muted,precision:0};hourOptions.scales.x.ticks={color:C.muted,autoSkip:true,maxTicksLimit:12,maxRotation:0,font:{size:11}};hourOptions.plugins.tooltip.callbacks={label:c=>num.format(c.parsed.y)+' 筆單筆警報'};
- paint('hoursChart','bar',{labels:Array.from({length:24},(_,i)=>String(i).padStart(2,'0')),datasets:[{label:'單筆警報',data:a.single.length?a.hourCounts:[],backgroundColor:'#8cb5ff',borderRadius:4,maxBarThickness:27}]},hourOptions);
- $('timeChart').setAttribute('aria-label','每小時買入 '+exactMoney.format(a.buy)+'、賣出 '+exactMoney.format(a.sell));
+ const displayHours=Array.from({length:24},(_,h)=>a.hourCounts[(h-offset()/3600000+24)%24]);
+ const hourOptions=baseOptions();hourOptions.scales.y.ticks={color:C.muted,precision:0};hourOptions.scales.x.ticks={color:C.muted,autoSkip:true,maxTicksLimit:12,maxRotation:0,font:{size:11}};hourOptions.plugins.tooltip.callbacks={title:items=>items[0].label+' 點（'+zoneLabel()+'）',label:c=>num.format(c.parsed.y)+' 筆單筆警報'};
+ paint('hoursChart','bar',{labels:Array.from({length:24},(_,i)=>String(i).padStart(2,'0')),datasets:[{label:'單筆警報',data:a.single.length?displayHours:[],backgroundColor:'#8cb5ff',borderRadius:4,maxBarThickness:27}]},hourOptions);
+ $('timeChart').setAttribute('aria-label',zoneLabel()+' · 每小時買入 '+exactMoney.format(a.buy)+'、賣出 '+exactMoney.format(a.sell));
  $('directionChart').setAttribute('aria-label','買入 '+exactMoney.format(a.buy)+'，賣出 '+exactMoney.format(a.sell));
  $('chainChart').setAttribute('aria-label',Object.entries(a.chainAmounts).map(([k,v])=>CHAIN[k].name+' '+exactMoney.format(v)).join('；'));
  $('tokenChart').setAttribute('aria-label',a.top.map(r=>r.symbol+' '+CHAIN[r.chain].name+' '+exactMoney.format(r.total)).join('；')||'尚無單筆警報');
- $('hoursChart').setAttribute('aria-label','24 小時單筆警報筆數：'+a.hourCounts.map((n,h)=>h+'點 '+n+'筆').join('；'));
+ $('hoursChart').setAttribute('aria-label',zoneLabel()+' · 24 小時單筆警報筆數：'+displayHours.map((n,h)=>h+'點 '+n+'筆').join('；'));
 }
 function cell(row,text,cls=''){const c=document.createElement('td');c.textContent=text;if(cls)c.className=cls;row.append(c);return c;}
 function elem(tag,text,cls=''){const e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;return e;}
-function renderRows(){
- const body=$('alertRows');body.replaceChildren();const pages=Math.max(1,Math.ceil(records.length/PAGE_SIZE));page=Math.min(page,pages-1);
- if(!records.length){const row=elem('tr','','empty-row');cell(row,hasData?'目前資料沒有警報。':'尚未載入警報。請稍候自動讀取、拖放檔案，或載入假資料示範。').colSpan=7;body.append(row);}
- for(const r of records.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)){
+function renderRows(append=false){
+ const body=$('alertRows'),start=append?body.children.length:0,fragment=document.createDocumentFragment();if(!append)body.replaceChildren();
+ if(!records.length){const row=elem('tr','','empty-row');cell(row,hasData?'目前資料沒有警報。':loadState==='error'?'資料讀取失敗，請稍候自動重試。':'資料載入中…').colSpan=7;body.append(row);}
+ for(const r of records.slice(start,displayLimit)){
  const row=document.createElement('tr');cell(row,stamp(r.time));const chain=cell(row,'');chain.append(elem('div',CHAIN[r.chain].name,'color-'+r.chain),elem('div',r.dex,'muted'));
  const token=cell(row,'');const s=elem('div',symbolOf(r),'token-symbol');s.title=symbolOf(r);const address=elem('div',r.token?brief(r.token):'池 '+brief(r.pool),'token-address');address.title=r.token?'代幣 '+r.token:'池地址 '+r.pool;token.append(s,address);
  const k=cell(row,'');k.append(elem('span',r.kind==='WINDOW'?'5 分鐘爆量':'單筆大額','pill'+(r.kind==='WINDOW'?' window':'')));
  const dir=cell(row,'');dir.append(elem('span',r.direction==='BUY'?'↗ 買入':r.direction==='SELL'?'↘ 賣出':'買賣合計','direction '+(r.direction==='BUY'?'buy':r.direction==='SELL'?'sell':'muted')));
  const amount=cell(row,exactMoney.format(r.kind==='WINDOW'?r.windowTotal:r.usd),'money');if(r.kind==='WINDOW'){amount.append(elem('div',r.trades?num.format(r.trades)+' 筆成交':'五分鐘累積','muted'));amount.title='觸發當筆 USD：'+exactMoney.format(r.usd)+'；五分鐘累積：'+exactMoney.format(r.windowTotal);}
- const linkCell=cell(row,'');const links=elem('div','','links');for(const [label,url] of [['圖表',chartLink(r)],['交易',transactionLink(r)]]){const a=elem('a',label+' ↗');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',symbolOf(r)+' '+label);links.append(a);}linkCell.append(links);body.append(row);
+ const linkCell=cell(row,'');const links=elem('div','','links');for(const [label,url] of [['圖表',chartLink(r)],['交易',transactionLink(r)]]){const a=elem('a',label+' ↗');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',symbolOf(r)+' '+label);links.append(a);}linkCell.append(links);fragment.append(row);
  }
- $('recordCount').textContent=num.format(records.length)+' 筆';$('pageLabel').textContent=records.length?'第 '+(page+1)+' / '+pages+' 頁 · 共 '+num.format(records.length)+' 筆':'每頁 50 筆';$('prevButton').disabled=page===0;$('nextButton').disabled=page>=pages-1;
+ body.append(fragment);const shown=Math.min(displayLimit,records.length);
+ $('recordCount').textContent=hasData?num.format(records.length)+' 筆':loadState==='loading'?'載入中':'—';
+ $('pageLabel').textContent=hasData?'已顯示最新 '+num.format(shown)+' / '+num.format(records.length)+' 筆':'預設顯示最新 100 筆';
+ $('moreButton').hidden=!hasData||shown>=records.length;$('moreButton').textContent='載入更多（'+Math.min(BATCH_SIZE,records.length-shown)+' 筆）';
 }
-function utcInput(value){return value?dateValue(value.length===16?value+':00':value):null;}
+
+function wallTimeToUtc(value,zoneOffset=offset()){return value?dateValue(value.length===16?value+':00':value)-zoneOffset:null;}
 function currentRange(){
  const selected=$('timeRange').value,now=Date.now();
  if(selected==='ALL')return {start:null,end:null,error:''};
  if(selected!=='CUSTOM')return {start:now-Number(selected)*3600000,end:now,error:''};
- try{const start=utcInput($('dateStart').value),end=utcInput($('dateEnd').value);
- if(start===null||end===null)return {start,end,error:'請填寫 UTC 起訖時間。'};
+ try{const start=wallTimeToUtc($('dateStart').value),end=wallTimeToUtc($('dateEnd').value);
+ if(start===null||end===null)return {start,end,error:'請填寫 '+zoneLabel()+' 起訖時間。'};
  if(start>end)return {start,end,error:'結束時間不得早於開始時間。'};
  return {start,end:end+999,error:''};
- }catch(e){return {start:null,end:null,error:'UTC 起訖時間格式無效。'};}
+ }catch(e){return {start:null,end:null,error:'起訖時間格式無效（'+zoneLabel()+'）。'};}
+}
+function updateTimezoneLabels(){
+ const z=zoneLabel();$('rangeLabel').textContent='時間區間（'+z+'）';$('startLabel').textContent='開始時間（'+z+'）';$('endLabel').textContent='結束時間（'+z+'，含該秒）';
+ $('scopeNote').textContent='顯示時區：'+z+' · 最近警報列表保留全部資料';$('timeColumn').textContent='時間（'+z+'）';
+ $('tableIntro').textContent=z+' · 依時間由新到舊，不受圖表篩選影響；爆量列顯示五分鐘累積額';$('tableCaption').textContent='最近警報與交易連結，時間皆為 '+z;
+ $('timeCaption').textContent='每小時單筆警報金額 · USD · '+z;$('hoursCaption').textContent='所選區間中，每個鐘點發生的單筆警報筆數 · '+z;$('footerTimezone').textContent=z+' · Chart.js 4.5.1';
+}
+function switchTimezone(){
+ const values=['dateStart','dateEnd'].map(id=>{try{return wallTimeToUtc($(id).value);}catch(e){return null;}});
+ currentZone=$('timezoneSelect').value;try{localStorage.setItem('evm-dashboard-timezone',currentZone);}catch(e){}
+ ['dateStart','dateEnd'].forEach((id,i)=>{if(values[i]!==null)$(id).value=stamp(values[i]).replace(' ','T');});
+ updateTimezoneLabels();updateStatus();render(true);
 }
 function render(updateList=false){
  const chain=$('chainFilter').value,direction=$('directionFilter').value,range=currentRange();
  $('dateEnd').setCustomValidity(range.error);$('dateEnd').setAttribute('aria-invalid',String(!!range.error));
  filtered=range.error?[]:records.filter(r=>(chain==='ALL'||chain===r.chain)&&(direction==='ALL'||direction===r.direction)&&(range.start===null||r.time>=range.start)&&(range.end===null||r.time<=range.end));
- const a=aggregate(filtered);const has=hasData;
- $('totalUsd').textContent=has?money.format(a.total):'—';$('singleCount').textContent=has?num.format(a.single.length):'—';$('windowCount').textContent=has?num.format(filtered.length-a.single.length):'—';$('tokenCount').textContent=has?num.format(new Set(filtered.map(assetKey)).size):'—';
+ const a=aggregate(filtered),pending=!hasData&&loadState==='loading';
+ for(const [id,value] of [['totalUsd',money.format(a.total)],['singleCount',num.format(a.single.length)],['windowCount',num.format(filtered.length-a.single.length)],['tokenCount',num.format(new Set(filtered.map(assetKey)).size)]])$(id).textContent=hasData?value:pending?'載入中':'—';
  $('singleSplit').textContent='買入 '+a.single.filter(r=>r.direction==='BUY').length+' ／ 賣出 '+a.single.filter(r=>r.direction==='SELL').length;
  $('coverageLabel').textContent=(records.some(r=>!r.token)?'未提供代幣地址者按鏈＋symbol 分組':'以鏈＋代幣地址區分')+' · '+new Set(filtered.map(r=>r.chain)).size+' 條鏈';
- $('buySummary').textContent='買入 '+money.format(a.buy);$('sellSummary').textContent='賣出 '+money.format(a.sell);$('rankCount').textContent=Math.min(10,a.tokenCount)+' / '+a.tokenCount+' 種代幣';
- $('hoursCaption').textContent='所選區間中，每個鐘點發生的單筆警報筆數 · UTC';
- $('scopeLabel').textContent=range.error?'統計區間無效：'+range.error:has?'圖表統計 '+num.format(filtered.length)+' / '+num.format(records.length)+' 筆警報'+(range.start!==null?' · '+stamp(range.start)+' — '+stamp(range.end)+'（UTC）':' · 即時（全部資料）')+(isDemo?' · 假資料示範':'')+(a.sparse?' · 跨度超過一年，走勢僅顯示有紀錄的小時':''):'等待資料；篩選只影響圖表統計。';
+ $('buySummary').textContent='買入 '+(hasData?money.format(a.buy):'—');$('sellSummary').textContent='賣出 '+(hasData?money.format(a.sell):'—');$('rankCount').textContent=Math.min(10,a.tokenCount)+' / '+a.tokenCount+' 種代幣';
+ $('scopeLabel').textContent=range.error?'統計區間無效：'+range.error:hasData?'圖表統計 '+num.format(filtered.length)+' / '+num.format(records.length)+' 筆警報'+(range.start!==null?' · '+stamp(range.start)+' — '+stamp(range.end)+'（'+zoneLabel()+'）':' · 即時（全部資料）')+(a.sparse?' · 跨度超過一年，走勢僅顯示有紀錄的小時':''):pending?'資料載入中…':'等待資料恢復；篩選設定已保留。';
  renderCharts(a);if(updateList)renderRows();
 }
-const DEMO_ROWS=(()=>{
- const tokens=[['base','cbBTC','a1'],['bsc','CAKE','b2'],['ethereum','UNI','c3'],['base','AERO','d4'],['bsc','?','e5'],['ethereum','LINK','f6'],['base','DEGEN','a7'],['bsc','ETH','b8'],['ethereum','PEPE','c9'],['base','BRETT','da'],['bsc','XVS','eb'],['ethereum','AAVE','fc']];
- const amounts=[22953,45000,31000,72000,26000,88000,20000,54000,42000,67000,35000,120000,56000,39000,91000,24000,130000,48000,64000,210000];
- return amounts.map((usd,i)=>{const t=tokens[i%tokens.length],window=[5,11,19].includes(i);return {ts:(i<10?'2026-10-12':'2026-10-13')+' '+String((i*3+2)%24).padStart(2,'0')+':'+String(i*7%60).padStart(2,'0')+':38',chain:t[0],kind:window?'WINDOW':'SINGLE',tx:'0x'+(i+1).toString(16).padStart(64,'0'),token:'0x'+t[2].repeat(20),symbol:t[1],direction:i%3===0?'SELL':'BUY',usd,dex:t[0]==='base'?'aerodrome':t[0]==='bsc'?'pancakeswap-v3':'uniswap-v3',pool:'0x'+'ab'.repeat(20),...(window?{window_total:usd+100000,trades:8+i}:{})};});
-})();
 function init(){
- $('openButton').onclick=$('chooseButton').onclick=()=>$('fileInput').click();
- $('fileInput').onchange=e=>{readFile(e.target.files[0]);e.target.value='';};
- $('demoButton').onclick=()=>{importSerial++;acceptText(DEMO_ROWS.map(r=>JSON.stringify(r)).join('\n'),'20 筆假資料 · 2026-10-12 至 10-13',true);};
+ $('timezoneSelect').value=currentZone;updateTimezoneLabels();
  for(const id of ['chainFilter','directionFilter','dateStart','dateEnd'])$(id).onchange=()=>render();
  $('timeRange').onchange=()=>{toggleCustomRange();if($('timeRange').value==='CUSTOM'&&!$('dateStart').value&&!$('dateEnd').value){$('dateStart').value=stamp(Date.now()-86400000).replace(' ','T');$('dateEnd').value=stamp(Date.now()).replace(' ','T');}render();};
- $('resetButton').onclick=()=>{resetControls();render();};$('prevButton').onclick=()=>{page--;renderRows();};$('nextButton').onclick=()=>{page++;renderRows();};
- const drop=$('dropzone');let depth=0;
- window.addEventListener('dragover',e=>e.preventDefault());window.addEventListener('drop',e=>e.preventDefault());
- drop.addEventListener('dragenter',e=>{e.preventDefault();depth++;drop.classList.add('dragging');});drop.addEventListener('dragleave',()=>{depth=Math.max(0,depth-1);if(!depth)drop.classList.remove('dragging');});
- drop.addEventListener('dragover',e=>{e.preventDefault();e.dataTransfer.dropEffect='copy';});
- drop.addEventListener('drop',e=>{e.preventDefault();depth=0;drop.classList.remove('dragging');if(e.dataTransfer.files.length!==1){notice('請一次匯入一份 JSONL 檔案。',true);return;}readFile(e.dataTransfer.files[0]);});
- $('refreshButton').onclick=()=>refreshAlerts(true);
- render(true);updateMetadata();
- if(sourceMode==='remote'){refreshAlerts();refreshTimer=setInterval(()=>refreshAlerts(),60000);}
- else{$('refreshButton').disabled=true;$('refreshButton').title='請以 HTTP(S) 開啟頁面以自動刷新 alerts.json';$('sourceName').textContent='將 alerts.json 或 alerts.jsonl 拖放到這裡';$('sourceDetail').textContent='file:// 使用手動匯入；自動刷新請以 GitHub Pages 或其他 HTTP(S) 網址開啟。';syncStatus('file:// 手動檢視 · UTC');}
+ $('resetButton').onclick=()=>{resetControls();render();};$('timezoneSelect').onchange=switchTimezone;
+ $('moreButton').onclick=()=>{displayLimit+=BATCH_SIZE;renderRows(true);};$('refreshButton').onclick=refreshAlerts;
+ window.addEventListener('offline',()=>{if(activeController)activeController.abort();else refreshAlerts();});window.addEventListener('online',()=>refreshAlerts());
+ render(true);updateStatus();refreshAlerts();setInterval(updateStatus,1000);
 }
 document.addEventListener('DOMContentLoaded',init);
 </script>
