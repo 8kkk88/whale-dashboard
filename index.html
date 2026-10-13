@@ -47,7 +47,7 @@
 <section class="card full"><div class="card-head"><div><h2>24 小時時段分布</h2><p id="hoursCaption">所選日期中，每個鐘點發生的單筆警報筆數 · UTC</p></div><span class="badge">筆數</span></div><div class="chart"><canvas id="hoursChart" role="img" aria-label="0 到 23 點的單筆警報筆數"></canvas><div class="chart-empty" id="hoursEmpty">資料載入中…</div></div></section>
 <section class="card full"><div class="card-head"><div><h2>最近警報</h2><p id="tableIntro">UTC · 依時間由新到舊，不受圖表篩選影響；爆量列顯示五分鐘累積額</p></div><span class="badge" id="recordCount">載入中</span></div><div class="table-wrap" tabindex="0" role="region" aria-label="最近警報表格，可橫向捲動"><table><caption class="sr-only" id="tableCaption">最近警報與交易連結，時間皆為 UTC</caption><thead><tr><th id="timeColumn">時間（UTC）</th><th>鏈／DEX</th><th>幣種</th><th>警報類型</th><th>方向</th><th class="money">金額 · USD</th><th>查看</th></tr></thead><tbody id="alertRows"><tr class="empty-row"><td colspan="7">資料載入中…</td></tr></tbody></table></div><div class="pager"><span id="pageLabel">預設顯示最新 100 筆</span><button id="moreButton" hidden>載入更多（100 筆）</button></div></section>
 </div>
-<details class="details" id="dataDetails"><summary>資料說明</summary><p>資料只來自同目錄的 alerts.json，每 60 秒以瀏覽器預設快取檢查；只有 generated_at 改變才套用新資料。「立即刷新」使用相同快取策略。讀取失敗時保留上次成功資料。generated_at 超過 15 分鐘未變時會顯示同步警告；因為沒有新警報時這個時間也可能不變，警告不代表已確認同步故障。</p><p>資料時間與篩選邊界內部一律使用 UTC。可選 UTC 或台北（UTC+8）顯示；自選起訖時間依目前選擇的時區輸入，切換時區保留對應的實際時間範圍。最近區間以重繪當下的現在時間計算，自選區間包含結束時間的整秒。24 小時分布按所選時區合併相同鐘點。</p><p>鏈、方向、時間區間只影響圖表與摘要統計；最近警報列表保留全部資料，預設顯示最新 100 筆，可逐批載入更多。重新取得資料會保留篩選、顯示時區與已展開的筆數。</p><p>WINDOW 的 window_total 可能與 SINGLE 或其他窗口重疊，所以不混入五張金額／筆數圖；列表顯示其五分鐘累積金額。警報紀錄不足以還原完整市場成交量。正式資料未提供 token 地址時按鏈＋symbol 分組，無法區分同鏈同名代幣。symbol 不明時顯示縮寫地址並標示池地址；pool 不會當成 token。</p><p>相同紀錄會去重；若有 alert_id 或 log_index，按其身分識別。無效資料會略過並提示；整份資料無法解析時保留上次成功資料。Chart.js 由 CDN 載入。</p></details>
+<details class="details" id="dataDetails"><summary>資料說明</summary><p>資料只來自同目錄的 alerts.json，每 60 秒直接向伺服器重新取得（略過瀏覽器快取）；只有 generated_at 改變才套用新資料。「立即刷新」使用相同快取策略。讀取失敗時保留上次成功資料。generated_at 超過 15 分鐘未變時會顯示同步警告；因為沒有新警報時這個時間也可能不變，警告不代表已確認同步故障。</p><p>資料時間與篩選邊界內部一律使用 UTC。可選 UTC 或台北（UTC+8）顯示；自選起訖時間依目前選擇的時區輸入，切換時區保留對應的實際時間範圍。最近區間以重繪當下的現在時間計算，自選區間包含結束時間的整秒。24 小時分布按所選時區合併相同鐘點。</p><p>鏈、方向、時間區間只影響圖表與摘要統計；最近警報列表保留全部資料，預設顯示最新 100 筆，可逐批載入更多。重新取得資料會保留篩選、顯示時區與已展開的筆數。</p><p>WINDOW 的 window_total 可能與 SINGLE 或其他窗口重疊，所以不混入五張金額／筆數圖；列表顯示其五分鐘累積金額。警報紀錄不足以還原完整市場成交量。正式資料未提供 token 地址時按鏈＋symbol 分組，無法區分同鏈同名代幣。symbol 不明時顯示縮寫地址並標示池地址；pool 不會當成 token。</p><p>相同紀錄會去重；若有 alert_id 或 log_index，按其身分識別。無效資料會略過並提示；整份資料無法解析時保留上次成功資料。Chart.js 由 CDN 載入。</p></details>
 <footer class="footer"><span>來源：alerts.json · 每 60 秒檢查</span><span id="footerTimezone">UTC · Chart.js 4.5.1</span></footer></main>
 <script>
 'use strict';
@@ -166,8 +166,8 @@ async function refreshAlerts(){
  await Promise.resolve();
  try{
   if(navigator.onLine===false)throw Error('網路離線');
-  // Keep the browser's default cache; generated_at is the snapshot version.
-  const response=await fetch('alerts.json',{signal:controller.signal});
+  // Bypass HTTP cache so the page never shows a stale snapshot;
+  const response=await fetch('alerts.json?t='+Date.now(),{signal:controller.signal,cache:'no-store'});
   if(response.status===304){if(!hasData)throw Error('沒有可用的快取資料');loadState='ready';announce('資料未變');return false;}
   if(!response.ok)throw Error('HTTP '+response.status);
   const payload=await response.json(),header=snapshotHeader(payload);
