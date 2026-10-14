@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-10-14T02:02:16.799188+00:00",
+ "generated_at": "2026-10-14T02:07:49.943477+00:00",
  "generator": "evm-whale-monitor/export_dashboard.py",
  "tz": "UTC",
- "count": 233,
+ "count": 240,
  "dropped": 1,
  "note": "Real alerts only. Solana history excluded (pre-fix dirty data).",
  "alerts": [
@@ -3124,6 +3124,97 @@
    "tx": "0x1807e79beb9a60d0aaaf6542dc8c47c7f9afd9f71b64b2fdbff7fa9251de685b",
    "chart_url": "https://dexscreener.com/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640",
    "tx_url": "https://etherscan.io/tx/0x1807e79beb9a60d0aaaf6542dc8c47c7f9afd9f71b64b2fdbff7fa9251de685b"
+  },
+  {
+   "ts": "2026-10-14T02:03:26+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "SELL",
+   "usd": 22924.65,
+   "venue": "aerodrome",
+   "pool": "0xb2cc224c1c9feE385f8ad6a55b4d94E92359DC59",
+   "tx": "0x68c1dacf73c9395120fade10d01646a82d50c9e0866fa587a2aab8576e9db9b3",
+   "chart_url": "https://dexscreener.com/base/0xb2cc224c1c9feE385f8ad6a55b4d94E92359DC59",
+   "tx_url": "https://basescan.org/tx/0x68c1dacf73c9395120fade10d01646a82d50c9e0866fa587a2aab8576e9db9b3"
+  },
+  {
+   "ts": "2026-10-14T02:04:51+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "SELL",
+   "usd": 26885.95,
+   "venue": "uniswap",
+   "pool": "0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640",
+   "tx": "0x21b36c4290cf448f070cac6991377b2a74bfaab6563f3ad9f35bbb261385cb16",
+   "chart_url": "https://dexscreener.com/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640",
+   "tx_url": "https://etherscan.io/tx/0x21b36c4290cf448f070cac6991377b2a74bfaab6563f3ad9f35bbb261385cb16"
+  },
+  {
+   "ts": "2026-10-14T02:04:57+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "cbBTC",
+   "side": "BUY",
+   "usd": 23000.0,
+   "venue": "aerodrome",
+   "pool": "0x160D7E9d948B16c163332a277b393c288408eb12",
+   "tx": "0xeb2a63718bfadeabc02b83236d5ad45ccae952c1587c89505cc5aea0041770d5",
+   "chart_url": "https://dexscreener.com/base/0x160D7E9d948B16c163332a277b393c288408eb12",
+   "tx_url": "https://basescan.org/tx/0xeb2a63718bfadeabc02b83236d5ad45ccae952c1587c89505cc5aea0041770d5"
+  },
+  {
+   "ts": "2026-10-14T02:04:57+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "cbBTC",
+   "side": "SELL",
+   "usd": 22963.29,
+   "venue": "aerodrome",
+   "pool": "0x7C7420DD105E2779316423Ba3E973f434315EFA9",
+   "tx": "0xeb2a63718bfadeabc02b83236d5ad45ccae952c1587c89505cc5aea0041770d5",
+   "chart_url": "https://dexscreener.com/base/0x7C7420DD105E2779316423Ba3E973f434315EFA9",
+   "tx_url": "https://basescan.org/tx/0xeb2a63718bfadeabc02b83236d5ad45ccae952c1587c89505cc5aea0041770d5"
+  },
+  {
+   "ts": "2026-10-14T02:05:17+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WBTC",
+   "side": "SELL",
+   "usd": 32402.39,
+   "venue": "uniswap",
+   "pool": "0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx": "0x24d43f43669af9cd7296b6ea0285d8bc6779f4cb782e72a2eb327898af9faff3",
+   "chart_url": "https://dexscreener.com/ethereum/0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx_url": "https://etherscan.io/tx/0x24d43f43669af9cd7296b6ea0285d8bc6779f4cb782e72a2eb327898af9faff3"
+  },
+  {
+   "ts": "2026-10-14T02:05:58+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "SELL",
+   "usd": 80395.15,
+   "venue": "aerodrome",
+   "pool": "0x3FE04A59Ebd38cF06080a6F60a98D124eb59392A",
+   "tx": "0x117792404a47aa804f5583536a353a51a526783a3823e382902028e4a9ed3e95",
+   "chart_url": "https://dexscreener.com/base/0x3FE04A59Ebd38cF06080a6F60a98D124eb59392A",
+   "tx_url": "https://basescan.org/tx/0x117792404a47aa804f5583536a353a51a526783a3823e382902028e4a9ed3e95"
+  },
+  {
+   "ts": "2026-10-14T02:07:14+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "BUY",
+   "usd": 24887.22,
+   "venue": "aerodrome",
+   "pool": "0x3FE04A59Ebd38cF06080a6F60a98D124eb59392A",
+   "tx": "0x5a97ac62341fa88020512e60093964f413762bc8820f5f47a141a11f9793a506",
+   "chart_url": "https://dexscreener.com/base/0x3FE04A59Ebd38cF06080a6F60a98D124eb59392A",
+   "tx_url": "https://basescan.org/tx/0x5a97ac62341fa88020512e60093964f413762bc8820f5f47a141a11f9793a506"
   }
  ]
 }
