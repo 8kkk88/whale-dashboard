@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-10-14T03:17:04.174398+00:00",
+ "generated_at": "2026-10-14T03:22:16.767842+00:00",
  "generator": "evm-whale-monitor/export_dashboard.py",
  "tz": "UTC",
- "count": 325,
+ "count": 328,
  "dropped": 1,
  "note": "Real alerts only. Solana history excluded (pre-fix dirty data).",
  "alerts": [
@@ -4354,6 +4354,45 @@
    "tx": "0x575784cfe1d7249091f0a1109c2df8e1286332ba9f56133b444650efeced7bdc",
    "chart_url": "https://dexscreener.com/base/0x42d4a22CaD0F5a49681a5715cE994Af73A43B76b",
    "tx_url": "https://basescan.org/tx/0x575784cfe1d7249091f0a1109c2df8e1286332ba9f56133b444650efeced7bdc"
+  },
+  {
+   "ts": "2026-10-14T03:17:37+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "SELL",
+   "usd": 28588.22,
+   "venue": "aerodrome",
+   "pool": "0xb2cc224c1c9feE385f8ad6a55b4d94E92359DC59",
+   "tx": "0x59ba87f216f1ff50a50092222710a9dcac512bc0e28ecac4d112466ba9292c7d",
+   "chart_url": "https://dexscreener.com/base/0xb2cc224c1c9feE385f8ad6a55b4d94E92359DC59",
+   "tx_url": "https://basescan.org/tx/0x59ba87f216f1ff50a50092222710a9dcac512bc0e28ecac4d112466ba9292c7d"
+  },
+  {
+   "ts": "2026-10-14T03:21:10+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "cbBTC",
+   "side": "BUY",
+   "usd": 32235.25,
+   "venue": "aerodrome",
+   "pool": "0x42d4a22CaD0F5a49681a5715cE994Af73A43B76b",
+   "tx": "0x7b0111a549f6214efa5ac6f0512796e875f534be1dbb54b94c699e6df22107c9",
+   "chart_url": "https://dexscreener.com/base/0x42d4a22CaD0F5a49681a5715cE994Af73A43B76b",
+   "tx_url": "https://basescan.org/tx/0x7b0111a549f6214efa5ac6f0512796e875f534be1dbb54b94c699e6df22107c9"
+  },
+  {
+   "ts": "2026-10-14T03:21:10+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "BUY",
+   "usd": 28075.44,
+   "venue": "aerodrome",
+   "pool": "0x3FE04A59Ebd38cF06080a6F60a98D124eb59392A",
+   "tx": "0x7eaacecc6d532afada2db0ea2271f0991affdc4d3bf5a507fae91750f14f8677",
+   "chart_url": "https://dexscreener.com/base/0x3FE04A59Ebd38cF06080a6F60a98D124eb59392A",
+   "tx_url": "https://basescan.org/tx/0x7eaacecc6d532afada2db0ea2271f0991affdc4d3bf5a507fae91750f14f8677"
   }
  ]
 }
