@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-10-14T02:12:51.800274+00:00",
+ "generated_at": "2026-10-14T02:18:16.797313+00:00",
  "generator": "evm-whale-monitor/export_dashboard.py",
  "tz": "UTC",
- "count": 247,
+ "count": 250,
  "dropped": 1,
  "note": "Real alerts only. Solana history excluded (pre-fix dirty data).",
  "alerts": [
@@ -3316,6 +3316,45 @@
    "tx_url": "https://etherscan.io/tx/0x516b20b9dd8ff641a665b8846e32568f21e12600c38574e33014a380ed032df1",
    "trades": 137,
    "window_total": 203557.27
+  },
+  {
+   "ts": "2026-10-14T02:13:02+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "cbBTC",
+   "side": "BUY",
+   "usd": 31981.57,
+   "venue": "aerodrome",
+   "pool": "0x42d4a22CaD0F5a49681a5715cE994Af73A43B76b",
+   "tx": "0xbfbcbad1b65299c84a773931e582ad5ab9162297b701e93bc6940dead553589e",
+   "chart_url": "https://dexscreener.com/base/0x42d4a22CaD0F5a49681a5715cE994Af73A43B76b",
+   "tx_url": "https://basescan.org/tx/0xbfbcbad1b65299c84a773931e582ad5ab9162297b701e93bc6940dead553589e"
+  },
+  {
+   "ts": "2026-10-14T02:16:20+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "SELL",
+   "usd": 20812.83,
+   "venue": "aerodrome",
+   "pool": "0x3FE04A59Ebd38cF06080a6F60a98D124eb59392A",
+   "tx": "0x71fad25560dd5db849061324fcaca5c4f8694e0cdaa615c3110ef6a6c27a842a",
+   "chart_url": "https://dexscreener.com/base/0x3FE04A59Ebd38cF06080a6F60a98D124eb59392A",
+   "tx_url": "https://basescan.org/tx/0x71fad25560dd5db849061324fcaca5c4f8694e0cdaa615c3110ef6a6c27a842a"
+  },
+  {
+   "ts": "2026-10-14T02:16:31+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WBTC",
+   "side": "SELL",
+   "usd": 44949.93,
+   "venue": "uniswap",
+   "pool": "0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx": "0x56ddcc58f03f583eeda4ce79a77bfd5a790e8e62546ab99747d16d38641c0da2",
+   "chart_url": "https://dexscreener.com/ethereum/0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx_url": "https://etherscan.io/tx/0x56ddcc58f03f583eeda4ce79a77bfd5a790e8e62546ab99747d16d38641c0da2"
   }
  ]
 }
