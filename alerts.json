@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-10-14T06:18:27.082945+00:00",
+ "generated_at": "2026-10-14T06:23:29.919292+00:00",
  "generator": "evm-whale-monitor/export_dashboard.py",
  "tz": "UTC",
- "count": 462,
+ "count": 466,
  "dropped": 1,
  "note": "Real alerts only. Solana history excluded (pre-fix dirty data).",
  "alerts": [
@@ -6195,6 +6195,60 @@
    "tx": "0x859f5632a1a123c096322e66834eb5b51d9452ad498ad447f356445ea8e2b05e",
    "chart_url": "https://dexscreener.com/base/0xb2cc224c1c9feE385f8ad6a55b4d94E92359DC59",
    "tx_url": "https://basescan.org/tx/0x859f5632a1a123c096322e66834eb5b51d9452ad498ad447f356445ea8e2b05e"
+  },
+  {
+   "ts": "2026-10-14T06:18:33+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WBTC",
+   "side": "SELL",
+   "usd": 22494.35,
+   "venue": "uniswap",
+   "pool": "0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx": "0x9f6a2e1cc4e467cdd326059074638226714e4ff79d60ed79fc227d92716abd1a",
+   "chart_url": "https://dexscreener.com/ethereum/0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx_url": "https://etherscan.io/tx/0x9f6a2e1cc4e467cdd326059074638226714e4ff79d60ed79fc227d92716abd1a"
+  },
+  {
+   "ts": "2026-10-14T06:22:37+00:00",
+   "chain": "base",
+   "kind": "SINGLE",
+   "symbol": "cbBTC",
+   "side": "BUY",
+   "usd": 27771.31,
+   "venue": "aerodrome",
+   "pool": "0x42d4a22CaD0F5a49681a5715cE994Af73A43B76b",
+   "tx": "0x06cf3eaa17049233b5f7d0a5307401a0df42b1116072cab17219d29c317941e5",
+   "chart_url": "https://dexscreener.com/base/0x42d4a22CaD0F5a49681a5715cE994Af73A43B76b",
+   "tx_url": "https://basescan.org/tx/0x06cf3eaa17049233b5f7d0a5307401a0df42b1116072cab17219d29c317941e5"
+  },
+  {
+   "ts": "2026-10-14T06:22:48+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WBTC",
+   "side": "SELL",
+   "usd": 21254.99,
+   "venue": "uniswap",
+   "pool": "0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx": "0xf69ae59e329626237d1d8f97e4d105fc9f3de66063cea4cd4a49cacc3762ec0b",
+   "chart_url": "https://dexscreener.com/ethereum/0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx_url": "https://etherscan.io/tx/0xf69ae59e329626237d1d8f97e4d105fc9f3de66063cea4cd4a49cacc3762ec0b"
+  },
+  {
+   "ts": "2026-10-14T06:23:14+00:00",
+   "chain": "ethereum",
+   "kind": "WINDOW",
+   "symbol": "WBTC",
+   "side": "SELL",
+   "usd": 27341.67,
+   "venue": "uniswap",
+   "pool": "0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx": "0x1b8271759a087266b3cf38443171f60739b73a87d8356db79a9caaf978cd4fd3",
+   "chart_url": "https://dexscreener.com/ethereum/0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx_url": "https://etherscan.io/tx/0x1b8271759a087266b3cf38443171f60739b73a87d8356db79a9caaf978cd4fd3",
+   "trades": 7,
+   "window_total": 107886.12
   }
  ]
 }
