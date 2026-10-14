@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-10-14T02:18:16.797313+00:00",
+ "generated_at": "2026-10-14T02:23:37.528064+00:00",
  "generator": "evm-whale-monitor/export_dashboard.py",
  "tz": "UTC",
- "count": 250,
+ "count": 252,
  "dropped": 1,
  "note": "Real alerts only. Solana history excluded (pre-fix dirty data).",
  "alerts": [
@@ -3355,6 +3355,32 @@
    "tx": "0x56ddcc58f03f583eeda4ce79a77bfd5a790e8e62546ab99747d16d38641c0da2",
    "chart_url": "https://dexscreener.com/ethereum/0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
    "tx_url": "https://etherscan.io/tx/0x56ddcc58f03f583eeda4ce79a77bfd5a790e8e62546ab99747d16d38641c0da2"
+  },
+  {
+   "ts": "2026-10-14T02:18:32+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "SELL",
+   "usd": 20886.16,
+   "venue": "uniswap",
+   "pool": "0xE0554a476A092703abdB3Ef35c80e0D76d32939F",
+   "tx": "0xa1d665a5684c7e941c53df5f16f8333db8f662748b872cac24654ca7af5938cf",
+   "chart_url": "https://dexscreener.com/ethereum/0xE0554a476A092703abdB3Ef35c80e0D76d32939F",
+   "tx_url": "https://etherscan.io/tx/0xa1d665a5684c7e941c53df5f16f8333db8f662748b872cac24654ca7af5938cf"
+  },
+  {
+   "ts": "2026-10-14T02:18:58+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WBTC",
+   "side": "BUY",
+   "usd": 27010.98,
+   "venue": "uniswap",
+   "pool": "0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx": "0x8ff3eeb294081cf63078943f79b4f65b925a6374f0a8c0b60986bb06e8ff4f39",
+   "chart_url": "https://dexscreener.com/ethereum/0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx_url": "https://etherscan.io/tx/0x8ff3eeb294081cf63078943f79b4f65b925a6374f0a8c0b60986bb06e8ff4f39"
   }
  ]
 }
