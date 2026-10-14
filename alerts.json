@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-10-14T01:50:16.856603+00:00",
+ "generated_at": "2026-10-14T01:56:16.738380+00:00",
  "generator": "evm-whale-monitor/export_dashboard.py",
  "tz": "UTC",
- "count": 223,
+ "count": 226,
  "dropped": 1,
  "note": "Real alerts only. Solana history excluded (pre-fix dirty data).",
  "alerts": [
@@ -2994,6 +2994,45 @@
    "tx": "0x22877c4152dc1be118ff85484f4e348a8de20fe967b955bbc5cea3d3f388feeb",
    "chart_url": "https://dexscreener.com/ethereum/0xE0554a476A092703abdB3Ef35c80e0D76d32939F",
    "tx_url": "https://etherscan.io/tx/0x22877c4152dc1be118ff85484f4e348a8de20fe967b955bbc5cea3d3f388feeb"
+  },
+  {
+   "ts": "2026-10-14T01:50:32+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WBTC",
+   "side": "BUY",
+   "usd": 50307.95,
+   "venue": "uniswap",
+   "pool": "0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx": "0x3b6f244c03e0119034190f668b687af07b52dd5d936788ae840dd792c70f9e8a",
+   "chart_url": "https://dexscreener.com/ethereum/0x56534741CD8B152df6d48AdF7ac51f75169A83b2",
+   "tx_url": "https://etherscan.io/tx/0x3b6f244c03e0119034190f668b687af07b52dd5d936788ae840dd792c70f9e8a"
+  },
+  {
+   "ts": "2026-10-14T01:51:12+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "BUY",
+   "usd": 32377.53,
+   "venue": "uniswap",
+   "pool": "0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640",
+   "tx": "0x601fe2e03af3049ed17b57ff4c495028aac59a53f599d9f8bda6b5abe78cce9e",
+   "chart_url": "https://dexscreener.com/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640",
+   "tx_url": "https://etherscan.io/tx/0x601fe2e03af3049ed17b57ff4c495028aac59a53f599d9f8bda6b5abe78cce9e"
+  },
+  {
+   "ts": "2026-10-14T01:52:44+00:00",
+   "chain": "ethereum",
+   "kind": "SINGLE",
+   "symbol": "WETH",
+   "side": "SELL",
+   "usd": 22205.11,
+   "venue": "uniswap",
+   "pool": "0xE0554a476A092703abdB3Ef35c80e0D76d32939F",
+   "tx": "0xff9fe78cd78ac6e767274478c8fc056fa05dea66abd83a23d95d2b372db1e18d",
+   "chart_url": "https://dexscreener.com/ethereum/0xE0554a476A092703abdB3Ef35c80e0D76d32939F",
+   "tx_url": "https://etherscan.io/tx/0xff9fe78cd78ac6e767274478c8fc056fa05dea66abd83a23d95d2b372db1e18d"
   }
  ]
 }
